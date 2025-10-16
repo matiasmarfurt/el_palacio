@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 22-07-2025 a las 23:11:58
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.0.30
+-- Servidor: localhost
+-- Tiempo de generación: 16-10-2025 a las 22:30:01
+-- Versión del servidor: 12.0.2-MariaDB
+-- Versión de PHP: 8.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -108,15 +108,44 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`nombre`, `descripcion`, `precio`, `categoria`, `id`) VALUES
-('Laptop Lenovo V15', 'Portátil de 15.6\" con Ryzen 5 y 8GB RAM', 599.99, 'Electrónica', 1),
-('Mouse Logitech M170', 'Mouse inalámbrico con batería larga duración', 14.5, 'Accesorios', 2),
-('Auriculares JBL Tune', 'Auriculares inalámbricos con micrófono', 44.9, 'Audio', 3),
-('Silla Gamer Noganet', 'Silla ergonómica con soporte lumbar', 199.99, 'Muebles', 4),
-('Teclado Redragon K552', 'Teclado mecánico retroiluminado', 59, 'Accesorios', 5),
-('Smartphone Samsung A15', 'Celular con cámara triple y 128GB de memoria', 249, 'Telefonía', 6),
-('Disco SSD Kingston 480GB', 'Unidad de estado sólido SATA3', 32.99, 'Almacenamiento', 7),
-('Monitor LG 24\" IPS', 'Monitor Full HD con panel IPS', 129.99, 'Electrónica', 8),
-('pan', 'lindo', 50, 'Comida', 11);
+('Pepsi 500ml', 'Gaseosa clásica 500ml', 2.5, 'Bebidas', 12),
+('Agua Mineral 500ml', 'Agua mineral sin gas 500ml', 1.8, 'Bebidas', 13),
+('Vino Malbec 750ml', 'Vino Malbec cosecha 2020 - botella 750ml', 18, 'Bebidas', 14),
+('Bife de Chorizo 300g', 'Bife de chorizo a la parrilla, 300g', 14.5, 'Carnes', 15),
+('Costillas BBQ', 'Costillas de cerdo glaseadas con salsa BBQ', 16, 'Carnes', 16),
+('Pasta Fettuccine Alfredo', 'Fettuccine con salsa Alfredo y parmesano', 10.5, 'Pastas', 17),
+('Ravioles de Ricota', 'Ravioles caseros rellenos de ricota y salsa a elección', 11, 'Pastas', 18);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `id_reserva` int(11) NOT NULL,
+  `nombre` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `telefono` varchar(50) NOT NULL,
+  `personas` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `comentarios` text DEFAULT NULL,
+  `estado` varchar(50) NOT NULL DEFAULT 'pendiente',
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id_reserva`, `nombre`, `email`, `telefono`, `personas`, `fecha`, `hora`, `comentarios`, `estado`, `created_at`, `updated_at`) VALUES
+(1, 'María López', 'maria.lopez@example.com', '+5491122233344', 2, '2025-10-20', '20:00:00', 'Mesa cerca de la ventana. Celebración pequeño aniversario.', 'confirmada', '2025-10-16 19:27:29', '2025-10-16 19:27:29'),
+(2, 'Juan Pérez', 'juan.perez@example.com', '+5491166677788', 4, '2025-10-21', '21:30:00', 'Solicita menú sin gluten para 1 persona.', 'pendiente', '2025-10-16 19:27:29', '2025-10-16 19:27:29'),
+(3, 'Grupo Amigos', 'grupo.amigos@example.com', '+5491177788990', 6, '2025-10-22', '19:00:00', 'Necesitan 2 mesas juntas.', 'confirmada', '2025-10-16 19:27:29', '2025-10-16 19:27:29'),
+(4, 'Ana García', 'ana.garcia@example.com', '+5491144455566', 3, '2025-10-23', '13:30:00', 'Comida de trabajo, proyector disponible.', 'pendiente', '2025-10-16 19:27:29', '2025-10-16 19:27:29'),
+(5, 'Familia Ruiz', 'familia.ruiz@example.com', '+5491133322110', 5, '2025-11-01', '20:30:00', 'Niños (2) con silla alta.', 'confirmada', '2025-10-16 19:27:29', '2025-10-16 19:27:29');
 
 -- --------------------------------------------------------
 
@@ -153,26 +182,6 @@ INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `emai
 (24, 'pedro', 'julian', 'pepitorodriguez@correofalso.com', '$2y$10$0i6cRnBEsX6tAAu3ENvONO0m9v74KlkhJbueNC8pU2djO9KtuRxSi', 'cliente'),
 (25, 'pedro', 'julian', 'pepitorodriguez@correofalso.com', '$2y$10$22IhVscSJZrekcHAvJKQCeb5o1pObJeIq/3zC8cdKZ/KHCT.YOWXq', 'cliente'),
 (26, 'pepe', 'pedro', 'pepitorodriguez@correofalso.com', '$2y$10$mdYQCQznReeF9gXtpGMz9.RisXyWaZo0uHBWhavVHpr2GywNGsiFC', 'cliente');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `reservas`
---
-
-CREATE TABLE `reservas` (
-  `id_reserva` int(11) NOT NULL,
-  `nombre` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `telefono` varchar(50) NOT NULL,
-  `personas` int(11) NOT NULL,
-  `fecha` date NOT NULL,
-  `hora` time NOT NULL,
-  `comentarios` text DEFAULT NULL,
-  `estado` varchar(50) NOT NULL DEFAULT 'pendiente',
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tablas volcadas
@@ -220,6 +229,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`id_reserva`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -263,21 +278,19 @@ ALTER TABLE `pedido`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT de la tabla `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
--- AUTO_INCREMENT de la tabla `reservas`
--- (si la tabla fue añadida al volcado, aseguramos PK y AUTO_INCREMENT)
-ALTER TABLE `reservas`
-  ADD PRIMARY KEY (`id_reserva`);
-
-ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas

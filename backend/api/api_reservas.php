@@ -1,62 +1,58 @@
 <?php
 
-require __DIR__ . "/../logs/log.php";
+require __DIR__ . "/../logs/log.php"; // Importar el archivo de configuración de registro de errores
 
-// Habilitar CORS para permitir peticiones desde el frontend
+// Habilitar CORS
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
-// Asegurar que las respuestas serán JSON
-header("Content-Type: application/json; charset=utf-8");
+header("Content-Type: application/json");
 
 // Manejar preflight OPTIONS
 if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
     http_response_code(200);
-    echo json_encode(["ok" => true]);
     exit();
 }
 
-require_once __DIR__ . "/../controlador/reservas.php";
+require __DIR__ . "/../controlador/reservas.php"; // Importar el controlador
 
-// Obtener el método de la solicitud HTTP
-$method = $_SERVER['REQUEST_METHOD'];
+// Obtener el método de la solicitud HTTP (GET, POST, PUT, DELETE)
+$requestMethod = $_SERVER["REQUEST_METHOD"];
 
-if ($method == 'GET') {
-    // Si se pasa ?listar=1 devolver todas las reservas
-    if (isset($_GET['listar'])) {
-        listarReservas();
-    } else {
-        http_response_code(400);
-        echo json_encode(["error" => "Falta parámetro o ruta no soportada"]);
-    }
-} elseif ($method == 'POST') {
-    // Leer JSON del body
-    $data = json_decode(file_get_contents('php://input'), true);
-    // Tolerar envío por form-data (POST clásico)
+if ($requestMethod == "GET") {
+    listarReservas();
+} elseif ($requestMethod == "POST") {
+    $data = json_decode(file_get_contents("php://input"), true);
+
     if (!$data) {
         $data = $_POST;
     }
 
-    // Validación básica en el API (complementaria a la del controlador)
-    if (empty($data['nombre']) || empty($data['email']) || empty($data['telefono'])
-        || empty($data['personas']) || empty($data['fecha']) || empty($data['hora'])) {
+    // Crear reserva (validaciones básicas son responsabilidad del controlador)
+    if (
+        isset($data['nombre']) && isset($data['email']) && isset($data['telefono']) &&
+        isset($data['personas']) && isset($data['fecha']) && isset($data['hora'])
+    ) {
+        crearReserva(
+            $data['nombre'],
+            $data['email'],
+            $data['telefono'],
+            $data['personas'],
+            $data['fecha'],
+            $data['hora'],
+            $data['comentarios'] ?? ''
+        );
+    } else {
         http_response_code(400);
-        echo json_encode(["error" => "Faltan campos obligatorios"]);
-        exit();
+        echo json_encode([
+            "success" => false,
+            "error" => "Datos insuficientes"
+        ]);
     }
-
-    // Delegar la creación al controlador
-    crearReserva(
-        $data['nombre'] ?? '',
-        $data['email'] ?? '',
-        $data['telefono'] ?? '',
-        $data['personas'] ?? '',
-        $data['fecha'] ?? '',
-        $data['hora'] ?? '',
-        $data['comentarios'] ?? ''
-    );
 } else {
     http_response_code(405);
-    echo json_encode(["error" => "Método no permitido"]);
+    echo json_encode([
+        "success" => false,
+        "error" => "Método no permitido"
+    ]);
 }

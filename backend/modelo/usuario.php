@@ -13,6 +13,21 @@ class Usuario
         $this->conn = $conn;
     }
 
+    public function obtenerTodos()
+    {
+        $query = "SELECT id_usuario, nombre_usuario, apellido_usuario, email, tipo FROM usuario";
+        $result = $this->conn->query($query);
+        
+        $usuarios = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $usuarios[] = $row;
+            }
+        }
+        
+        return $usuarios;
+    }
+
     // Método para registrar un nuevo usuario
     public function registrar($nombre_usuario, $apellido_usuario, $email, $tipo, $password)
     {

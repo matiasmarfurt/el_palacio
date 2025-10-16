@@ -1,4 +1,3 @@
-
 <?php
 // Se importa el archivo que contiene la configuración de la base de datos, que establece la conexión
 require_once __DIR__ . "/../config/conexion.php"; // Importar la conexión a la base de datos
