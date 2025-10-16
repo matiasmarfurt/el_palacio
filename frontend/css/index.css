@@ -119,19 +119,49 @@ body {
   margin: 8px 0 15px;
 }
 
-.precio {
-  background: #333;
-  color: white;
+/* Botón agregar al carrito */
+.grid-item .btn-agregar {
+    background: #007bff;
+
   border: none;
-  padding: 10px 20px;
   border-radius: 6px;
+  padding: 10px 22px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 0.9rem;
-  transition: background 0.3s ease;
+  transition: background 0.3s;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  box-shadow: 0 2px 8px rgba(51,51,51,0.08);
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.grid-item .btn-agregar:hover {
+  background: #0056b3;
+}
+
+/* Precio más grande y destacado */
+.precio {
+  display: inline-block;
+  background: #555;
+  color: #fff;
+  border-radius: 14px;
+  padding: 6px 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border: none;
+  cursor: default;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  transition: background 0.3s;
 }
 
 .precio:hover {
-  background: #555;
+  background: #0056b3;
 }
 
 /* Simplified overlay design */
@@ -298,6 +328,12 @@ body {
   text-align: center;
 }
 
+.carrito-total {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  align-self: center;
+}
 
 .footer-bottom {
   background: #f0f0f0;
@@ -314,6 +350,76 @@ body {
   color: #666;
   margin: 0;
   font-size: 0.9rem;
+}
+
+/* Carrito modal */
+#carritoModal.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#carritoModal .modal-dialog {
+  max-width: 400px;
+  width: 100%;
+}
+
+#carritoModal .modal-content {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#carritoModal .modal-header {
+  background: #333;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#carritoModal .modal-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+#carritoModal .btn-close {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+#carritoModal .modal-body {
+  padding: 20px;
+  background: #fff;
+}
+
+#carritoModal .modal-footer {
+  padding: 15px 20px;
+  background: #f8f9fa;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Badge del carrito */
+#carritoCantidad.badge {
+  font-size: 0.85rem;
+  vertical-align: top;
+  margin-left: 2px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
+  padding: 3px 7px;
 }
 
 /* Improved responsive design */

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -42,6 +40,11 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="login.html">👤</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" id="carritoBtn">
+                  🛒 <span id="carritoCantidad" class="badge bg-primary">0</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -269,6 +272,24 @@
         </div>
       </div>
     </section>
+
+    <div id="carritoModal" class="modal" tabindex="-1" style="display:none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Carrito de compras</h5>
+            <button type="button" class="btn-close" onclick="cerrarCarrito()"></button>
+          </div>
+          <div class="modal-body" id="carritoContenido">
+            <p>Tu carrito está vacío.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="cerrarCarrito()">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="finalizarCompra()">Finalizar compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="../js/carta.js"></script>
     <script src="../js/navbar.js"></script>
