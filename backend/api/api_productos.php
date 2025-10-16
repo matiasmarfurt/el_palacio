@@ -1,11 +1,12 @@
 <?php
 
-require "../logs/log.php"; // Importar el archivo de configuración de registro de errores
+require __DIR__ . "/../logs/log.php"; // Importar el archivo de configuración de registro de errores
 
 // Habilitar CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+header("Content-Type: application/json");
 
 // Manejar preflight OPTIONS
 if ($_SERVER["REQUEST_METHOD"] == "OPTIONS") {
