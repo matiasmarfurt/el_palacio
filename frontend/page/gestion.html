@@ -2,80 +2,113 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Gestión de Productos</title>
+    <title>Gestión de Productos - El Palacio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/gestion.css" />
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/gestion.css" />
   </head>
 
   <body>
-    <div class="container">
-      <h1 class="text-center">Gestión de Productos</h1>
-      <div>
-        <div>
+    <!-- Added restaurant-style header navigation -->
+    <header class="admin-header">
+      <div class="header-container">
+        <div class="brand">
+          <h1>El Palacio</h1>
+          <span class="subtitle">Panel de Gestión</span>
+        </div>
+        <nav class="admin-nav">
+          <a href="index.html" class="nav-link">Volver al sitio</a>
+          <a href="login.html" class="nav-link">Cerrar sesión</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="main-container">
+      <!-- Restructured layout with better visual hierarchy -->
+      <div class="content-wrapper">
+        <!-- Enhanced form section with restaurant styling -->
+        <section class="form-section">
+          <div class="section-header">
+            <h2>Agregar Nuevo Producto</h2>
+            <p class="section-description">Complete los datos del producto para agregarlo al menú</p>
+          </div>
+          
           <form
             id="formAgregarProducto"
+            class="product-form"
             onsubmit="event.preventDefault(); agregarProductoDesdeFormulario();"
           >
-            <h2>Agregar Producto</h2>
-            <div class="mb-2">
-              <label class="form-label"
-                >Nombre:
+            <div class="form-grid">
+              <div class="form-field">
+                <label class="field-label" for="nombreProducto">Nombre del Producto</label>
                 <input
                   type="text"
                   id="nombreProducto"
-                  class="form-control"
+                  class="field-input"
+                  placeholder="Ej: Filet Mignon"
                   required
                 />
-              </label>
-            </div>
-            <div class="mb-2">
-              <label class="form-label"
-                >Descripción:
-                <input
-                  type="text"
-                  id="descripcionProducto"
-                  class="form-control"
-                  required
-                />
-              </label>
-            </div>
-            <div class="mb-2">
-              <label class="form-label"
-                >Precio:
-                <input
-                  type="number"
-                  id="precioProducto"
-                  class="form-control"
-                  step="0.01"
-                  required
-                />
-              </label>
-            </div>
-            <div class="mb-2">
-              <label class="form-label"
-                >Categoria:
+              </div>
+
+              <div class="form-field">
+                <label class="field-label" for="categoriaProducto">Categoría</label>
                 <input
                   type="text"
                   id="categoriaProducto"
-                  class="form-control"
+                  class="field-input"
+                  placeholder="Ej: Carnes, Pastas, Bebidas"
+                  required
+                />
+              </div>
+
+              <div class="form-field full-width">
+                <label class="field-label" for="descripcionProducto">Descripción</label>
+                <textarea
+                  id="descripcionProducto"
+                  class="field-input field-textarea"
+                  placeholder="Descripción detallada del producto"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-field">
+                <label class="field-label" for="precioProducto">Precio ($)</label>
+                <input
+                  type="number"
+                  id="precioProducto"
+                  class="field-input"
+                  placeholder="0.00"
                   step="0.01"
                   required
                 />
-              </label>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Agregar</button>
+
+            <button type="submit" class="btn-submit">
+              <span>Agregar Producto</span>
+            </button>
           </form>
-        </div>
-        <div>
-          <input
-            type="text"
-            id="buscadorProductos"
-            class="form-control mb-3"
-            placeholder="Buscar productos (ID, Nombre, Descripción) . . ."
-          />
-          <div id="productosContainer" class="table-responsive"></div>
-        </div>
+        </section>
+
+        <!-- Enhanced products list section -->
+        <section class="products-section">
+          <div class="section-header">
+            <h2>Lista de Productos</h2>
+            <p class="section-description">Gestione todos los productos del menú</p>
+          </div>
+
+          <div class="search-container">
+            <input
+              type="text"
+              id="buscadorProductos"
+              class="search-input"
+              placeholder="Buscar por nombre, descripción o categoría..."
+            />
+          </div>
+
+          <div id="productosContainer" class="products-container"></div>
+        </section>
       </div>
     </div>
 
@@ -91,6 +124,8 @@
         let categoria = document.getElementById("categoriaProducto").value;
 
         agregarProducto(nombre, descripcion, precio, categoria);
+        
+        document.getElementById("formAgregarProducto").reset();
       }
     </script>
   </body>

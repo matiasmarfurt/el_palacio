@@ -4,75 +4,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesion</title>
-    <link rel="stylesheet" href="../css/sesion.css">
+    <title>Inicio de Sesión - El Palacio</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/sesion.css?v=20251017">
 </head>
 
 <body>
     <header>
-        <div class="header-container">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="../page/index.html">El Palacio</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#carta">Carta</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#reservas">Reservas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#ubicacion">¿Donde nos encontramos?</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#contacto">Contacto</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.html">👤 </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-    </header>
-
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="row w-100">
-            <div class="col-12 col-md-6 offset-md-3">
-                <div class="card shadow login-container">
-                    <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
-                        <form id="loginForm">
-                            <div class="mb-3">
-                                <input type="text" id="username" class="form-control" placeholder="Usuario" required>
-                            </div>
-                            <div class="mb-3">
-                                <input type="password" id="password" class="form-control" placeholder="Contraseña"
-                                    required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100 rounded-pill">Ingresar</button>
-                            <p id="errorMsg" class="error text-danger mt-3"></p>
-                        </form>
-                    </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="../page/index.html">El Palacio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#carta">Carta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#reservas">Reservas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contacto">Contacto</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="login.html">👤</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
+        </nav>
+    </header>
+
+    <!-- Contenedor de login rediseñado con estilo profesional y decorativo -->
+    <main class="login-page">
+        <div class="login-container">
+            <!-- Decoración superior -->
+            <div class="decoration-top"></div>
+            
+            <div class="login-card">
+                <!-- Removido emoji decorativo -->
+                <h1>Iniciar Sesión</h1>
+                <p class="subtitle">Bienvenido a El Palacio</p>
+                
+                <form id="loginForm" class="login-form">
+                    <div class="form-group">
+                        <label for="username">Usuario</label>
+                        <div class="input-wrapper">
+                            <!-- Removido emoji, usando línea decorativa -->
+                            <input 
+                                type="text" 
+                                id="username" 
+                                placeholder="Tu usuario" 
+                                required
+                                autocomplete="username">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <div class="input-wrapper">
+                            <!-- Removido emoji -->
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="Tu contraseña" 
+                                required
+                                autocomplete="current-password">
+                        </div>
+                    </div>
+                    
+                    <p id="errorMsg" class="error-message"></p>
+                    
+                    <button type="submit" class="btn-primary">Iniciar Sesión</button>
+                </form>
+                
+                <div class="login-footer">
+                    <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                </div>
+            </div>
+            
+            <!-- Decoración inferior -->
+            <div class="decoration-bottom"></div>
         </div>
-    </div>
+        
+        <!-- Agregando overlay de animación de carga y éxito -->
+        <!-- Added overlay with blur effect and loading animation -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="loading-container">
+                <div id="loadingSpinner" class="loading-spinner"></div>
+                <div id="successCheck" class="success-check hidden">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <p id="loadingText" class="loading-text">Iniciando sesión...</p>
+            </div>
+        </div>
+    </main>
 
     <footer id="contacto" class="footer">
         <div class="container text-center">
             <p>© 2025 El Palacio. Todos los derechos reservados.</p>
-            <p>Contacto: "Inserten aquí el correo de el palacio" | Tel: "Inserten aquí el teléfono de el palacio"</p>
         </div>
     </footer>
 

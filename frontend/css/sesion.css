@@ -1,75 +1,383 @@
+/* Paleta ya está actualizada con #5c0a0a y #f5f5dc */
+/* Removido .input-icon y sus estilos relacionados con emojis */
+/* Rediseño minimalista acorde a restaurante */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 70px;
 }
 
-.login-container {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  margin: auto;
-  width: 80%;
+body {
+  /* Cambiar tipografía a sans-serif para unificar con index.html */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2c2c2c;
+  /* Cambiar fondo a gris #9b9b9b */
+  background: #9b9b9b;
+  min-height: 100vh;
+}
+
+/* Adding navbar overrides for Bootstrap compatibility */
+.navbar {
+  background-color: #0a0a0a !important;
+}
+
+.navbar.navbar-light {
+  background-color: #f8f9fa !important;
+}
+
+.navbar.navbar-light .navbar-brand,
+.navbar.navbar-light .nav-link,
+.navbar.navbar-light .navbar-toggler-icon {
+  color: #666 !important;
+}
+
+.navbar.navbar-light .nav-link:hover,
+.navbar.navbar-light .nav-link:focus {
+  color: #5c0a0a !important;
+}
+
+.navbar.navbar-light .navbar-toggler {
+  border-color: #f5f5dc !important;
+}
+
+/* Página de login minimalista */
+.login-page {
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 100px 20px 40px;
+  background: #ffffff; /* Updated to match body background */
+  position: relative;
 }
 
-.login-container input {
+.login-container {
   width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.login-container button {
-  padding: 10px;
-  background-color: #0b4da3;
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-weight: bold;
-  cursor: pointer;
-  width: 100%;
-  display: block;
+  max-width: 420px;
   margin: 0 auto;
 }
 
-.login-container button:hover {
-  background-color: #033468;
-  transition: background-color 0.5s ease;
+/* Decoraciones minimalistas */
+.decoration-top,
+.decoration-bottom {
+  height: 1px;
+  background: #5c0a0a;
+  margin: 30px 0;
 }
 
-.login-container .error {
-  color: red;
-  font-size: 14px;
-  margin-top: 10px;
+/* Tarjeta de login limpia y elegante */
+.login-card {
+  background: #ffffff;
+  border-radius: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 60px 50px;
+  transition: all 0.3s ease;
+  border: none;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
+.login-card:hover {
+  box-shadow: 0 4px 12px rgba(92, 10, 10, 0.15);
+}
+
+.login-card h1 {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #2c2c2c;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #7a7a7a;
+  text-align: center;
+  margin-bottom: 40px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+}
+
+/* Formulario minimalista */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #2c2c2c;
+  font-weight: 500;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+/* Wrapper para inputs */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-group input {
+  /* Cambiar fondo a blanco */
+  background: #ffffff;
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  border-radius: 0;
+  padding: 12px 0;
+  color: #2c2c2c;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
   width: 100%;
-  background-color: #212529;
-  color: #fff;
+  /* Cambiar tipografía a sans-serif */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-bottom-color: #5c0a0a;
+  background: #ffffff; /* Keep background white on focus as well */
+  box-shadow: none;
+}
+
+.form-group input::placeholder {
+  color: #b0b0b0;
+}
+
+.error-message {
+  color: #c41e3a;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 12px;
+  border-radius: 0;
+  background: transparent;
+  display: none;
+  border: none;
+}
+
+.error-message:not(:empty) {
+  display: block;
+}
+
+/* Botón principal minimalista */
+.btn-primary {
+  background: #2c2c2c;
+  border: 1px solid #2c2c2c;
+  border-radius: 0;
+  padding: 14px 30px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+  letter-spacing: 1px;
+  box-shadow: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; /* Updated to match body font-family */
+}
+
+.btn-primary:hover {
+  background: #5c0a0a;
+  border-color: #5c0a0a;
+  color: #ffffff;
+  transform: none;
+}
+
+.btn-primary:active {
+  transform: none;
+}
+
+/* Footer del formulario */
+.login-footer {
+  margin-top: 35px;
+  text-align: center;
+  padding-top: 30px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.login-footer p {
+  font-size: 0.9rem;
+  color: #7a7a7a;
+  margin: 0;
+}
+
+.login-footer a {
+  color: #5c0a0a;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.login-footer a:hover {
+  color: #2c2c2c;
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .login-page {
+    padding: 90px 15px 30px;
+  }
+
+  .login-card {
+    padding: 45px 35px;
+  }
+
+  .login-card h1 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .login-card {
+    padding: 35px 25px;
+  }
+
+  .login-card h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+  }
+
+  .form-group input {
+    padding: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Cambiar footer de position: fixed a position: relative */
+.footer {
+  position: relative;
+  bottom: auto;
+  width: 100%;
+  background-color: #0a0a0a !important;
+  color: #f5f5dc !important;
   padding: 10px 0;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   box-sizing: border-box;
 }
 
 .footer p {
   margin: 5px 0;
+  color: #f5f5dc !important;
 }
 
-@media (max-width: 576px) {
-  html {
-    overflow-y: auto;
+/* Agregando estilos de animación de carga y éxito (copiados de registro.css) */
+/* Added loading overlay and animation styles */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loading-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loading-spinner.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  .footer {
-    font-size: 12px;
-    padding: 15px 5px;
+  100% {
+    transform: rotate(360deg);
   }
+}
+
+.success-check {
+  width: 60px;
+  height: 60px;
+  background: #4caf50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scaleIn 0.5s ease-out;
+}
+
+.success-check.hidden {
+  display: none;
+}
+
+.success-check svg {
+  width: 36px;
+  height: 36px;
+  color: #ffffff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
 }
