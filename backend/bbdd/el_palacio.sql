@@ -167,22 +167,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `email`, `password`, `tipo`) VALUES
-(11, 'juanito23', '', 'juanito23@gmail.com', '1234abcd', 'cliente'),
-(12, 'carla_dev', '', 'carla.dev@hotmail.com', 'qwerty123', 'cliente'),
-(13, 'adminmaster', '', 'admin@tienda.com', 'adminpass', 'cliente'),
-(14, 'tomas_gamer', '', 'tomasg@correo.com', 'pass4321', 'cliente'),
-(15, 'luli_art', '', 'luli.art@gmail.com', 'arte2025', 'cliente'),
-(16, 'fernandoTech', '', 'fer.tech@yahoo.com', 'techlife!', 'cliente'),
-(17, 'vale_mkt', '', 'vale.marketing@mail.com', 'mkt2025val', 'cliente'),
-(18, 'fede_dev', '', 'fede@devmail.com', 'devrules99', 'cliente'),
-(19, 'rocio_admin', '', 'rocio.adm@gmail.com', 'seguriD4D', 'cliente'),
-(20, 'nico_test', '', 'nico.test@correo.com', 'test123test', 'cliente'),
-(21, 'pepe', 'pepe', 'pepitorodriguez@correofalso.com', '$2y$10$aH.vCjWCS.4BKmtaghMqeeihvPImuiFMIYJfqjUawUsTanzY2KLVC', 'cliente'),
 (23, 'pedro', 'julian', 'pepitorodriguez@correofalso.com', '$2y$10$hdZTnTTzEidFs16t4MllEeDRLYawJqUN/A6RlRPkHE8x6iPmN5oxm', 'cliente'),
-(24, 'pedro', 'julian', 'pepitorodriguez@correofalso.com', '$2y$10$0i6cRnBEsX6tAAu3ENvONO0m9v74KlkhJbueNC8pU2djO9KtuRxSi', 'cliente'),
-(25, 'pedro', 'julian', 'pepitorodriguez@correofalso.com', '$2y$10$22IhVscSJZrekcHAvJKQCeb5o1pObJeIq/3zC8cdKZ/KHCT.YOWXq', 'cliente'),
-(26, 'pepe', 'pedro', 'pepitorodriguez@correofalso.com', '$2y$10$mdYQCQznReeF9gXtpGMz9.RisXyWaZo0uHBWhavVHpr2GywNGsiFC', 'cliente');
-
+(24, 'roberto', 'mohammed', 'mohammed@correofalso.com', '$2y$10$0i6cRnBEsX6tAAu3ENvONO0m9v74KlkhJbueNC8pU2djO9KtuRxSi', 'cliente'),
+(25, 'john', 'doe', 'unknown@correofalso.com', '$2y$10$utVVuCtDZIK3Ma9CrbWVZOa7s.EHiYWIfSHHAYMw5/fWCDY90J7wi', 'cliente'),
+(26, 'Administrador', 'Profesional' 'administrador@administrador.com' '$2y$10$bHWNSMWQwDT./PBIJRwZ9uE6rWQYZebXbvqVSKoapx.O6lAz4pe2a' 'admin', )
 --
 -- Índices para tablas volcadas
 --

@@ -36,12 +36,15 @@ function enviarLogin(event) {
     })
     .then((data) => {
       // Si el login es exitoso, guardar usuario en localStorage y redirigir
-      if (data.success && data.usuario) {
+      if (data.success && data.token && data.usuario) {
+           localStorage.setItem("token", data.token);
         localStorage.setItem("usuario", JSON.stringify(data.usuario)); // Guarda la sesión del usuario
+
+        // En función del tipo de usuario, redirigir a la página correspondiente
         if (data.usuario.tipo === "admin") {
-          window.location.href = "../page/gestion.html";
+          window.location.href = "../page/gestion.html"; // Panel de administración para admins
         } else {
-          window.location.href = "../page/index.html";
+          window.location.href = "../page/index.html"; // Página principal para usuarios normales
         }
 
       } else {
