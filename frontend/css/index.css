@@ -180,10 +180,55 @@ body {
   cursor: pointer;
   font-size: 0.9rem;
   transition: background 0.3s ease;
+  /* Hacer el botón de precio más pequeño en ancho */
+  display: inline-block;
+  margin: 15px auto 10px;
+  min-width: 100px;
 }
 
 .precio:hover {
   background: #5c0a0a;
+}
+
+/* Agregar estilos para el botón de añadir al carrito */
+.btn-agregar {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.btn-agregar:hover {
+  background: #5c0a0a;
+}
+
+/* Agregar estilos para la notificación de producto añadido */
+.notificacion-producto {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100px);
+  background: #333;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  z-index: 2000;
+  opacity: 0;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.notificacion-producto.mostrar {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
 }
 
 /* Simplified overlay design */
@@ -293,11 +338,25 @@ body {
 }
 
 /* Simplified contact section */
+.contact-section {
+  background: #ffffff;
+  padding: 40px 0;
+  border-top: 1px solid #5c0a0a;
+}
+
 .contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   margin-top: 40px;
+}
+
+.contact-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap; /* permite que no rompa en pantallas pequeñas */
 }
 
 .contact-info {
@@ -310,6 +369,7 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 15px;
+  min-width: 250px;
 }
 
 .contact-icon {
@@ -340,24 +400,9 @@ body {
 
 .contact-details p {
   color: #666;
-  line-height: 1.5;
-  margin: 0;
+  line-height: 1.4;
+  margin: 4px 0 0;
   font-size: 0.95rem;
-}
-
-.contact-form {
-  /* Cambiar fondo de beige a blanco */
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 30px;
-}
-
-.contact-form h3 {
-  color: #333;
-  font-size: 1.3rem;
-  font-weight: 500;
-  margin-bottom: 25px;
-  text-align: center;
 }
 
 /* Added styles for the new location section */
@@ -493,7 +538,7 @@ body {
 }
 
 .footer-bottom p {
-  color: #f5f5dc;
+  color: #ffffff;
   margin: 0;
   font-size: 0.9rem;
 }
@@ -580,4 +625,133 @@ body {
     width: 20px;
     height: 20px;
   }
+}
+/* Campo de teléfono con selector de país integrado */
+
+.telefono-wrapper {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+}
+
+.telefono-wrapper select {
+  position: absolute;
+
+  left: 10px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  background: transparent;
+
+  border: none;
+
+  font-size: 0.95rem;
+
+  padding: 0 5px;
+
+  color: #333;
+
+  appearance: none;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.telefono-wrapper input {
+  width: 100%;
+
+  background: #f8f9fa;
+
+  border: 1px solid #ddd;
+
+  border-radius: 6px;
+
+  padding: 12px 15px 12px 90px;
+
+  font-size: 1rem;
+
+  color: #333;
+
+  transition: border-color 0.3s ease;
+}
+
+.telefono-wrapper input:focus {
+  outline: none;
+
+  border-color: #666;
+}
+
+.telefono-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  left: 75px;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  height: 60%;
+
+  width: 1px;
+
+  background: #ccc;
+
+  pointer-events: none;
+}
+
+.telefono-wrapper select:focus + input {
+  border-color: #666;
+}
+
+/* Estilo de mensaje de reservas */
+
+#mensaje-reserva {
+  position: fixed;
+
+  top: 70px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 2000;
+
+  padding: 15px 25px;
+
+  border-radius: 6px;
+
+  font-size: 1rem;
+
+  display: none;
+
+  min-width: 300px;
+
+  text-align: center;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#mensaje-reserva.exito {
+  background-color: #d4edda;
+
+  color: #155724;
+
+  border: 1px solid #c3e6cb;
+}
+
+#mensaje-reserva.error {
+  background-color: #f8d7da;
+
+  color: #721c24;
+
+  border: 1px solid #f5c6cb;
 }

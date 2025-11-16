@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Gestión de Productos - El Palacio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/gestion.css" />
   </head>
@@ -18,115 +19,356 @@
         </div>
         <nav class="admin-nav">
           <a href="index.html" class="nav-link">Volver al sitio</a>
+          <a href="#" class="nav-link" id="userLinkAdmin">Usuario</a>
           <a href="login.html" class="nav-link">Cerrar sesión</a>
         </nav>
       </div>
     </header>
 
     <div class="main-container">
+      <!-- Agregar pestañas de navegación -->
+      <div class="tabs-container">
+        <button class="tab-btn active" onclick="cambiarTab('productos')">
+          Productos
+        </button>
+        <button class="tab-btn" onclick="cambiarTab('pedidos')">Pedidos</button>
+        <button class="tab-btn" onclick="cambiarTab('clientes')">
+          Usuarios
+        </button>
+        <button class="tab-btn" onclick="cambiarTab('reservas')">
+          Reservas
+        </button>
+      </div>
+
       <!-- Restructured layout with better visual hierarchy -->
       <div class="content-wrapper">
-        <!-- Enhanced form section with restaurant styling -->
-        <section class="form-section">
-          <div class="section-header">
-            <h2>Agregar Nuevo Producto</h2>
-            <p class="section-description">Complete los datos del producto para agregarlo al menú</p>
-          </div>
-          
-          <form
-            id="formAgregarProducto"
-            class="product-form"
-            onsubmit="event.preventDefault(); agregarProductoDesdeFormulario();"
-          >
-            <div class="form-grid">
-              <div class="form-field">
-                <label class="field-label" for="nombreProducto">Nombre del Producto</label>
-                <input
-                  type="text"
-                  id="nombreProducto"
-                  class="field-input"
-                  placeholder="Ej: Filet Mignon"
-                  required
-                />
-              </div>
-
-              <div class="form-field">
-                <label class="field-label" for="categoriaProducto">Categoría</label>
-                <input
-                  type="text"
-                  id="categoriaProducto"
-                  class="field-input"
-                  placeholder="Ej: Carnes, Pastas, Bebidas"
-                  required
-                />
-              </div>
-
-              <div class="form-field full-width">
-                <label class="field-label" for="descripcionProducto">Descripción</label>
-                <textarea
-                  id="descripcionProducto"
-                  class="field-input field-textarea"
-                  placeholder="Descripción detallada del producto"
-                  rows="3"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="form-field">
-                <label class="field-label" for="precioProducto">Precio ($)</label>
-                <input
-                  type="number"
-                  id="precioProducto"
-                  class="field-input"
-                  placeholder="0.00"
-                  step="0.01"
-                  required
-                />
-              </div>
+        <!-- Tab de Productos -->
+        <div id="tabProductos" class="tab-content active">
+          <!-- Enhanced form section with restaurant styling -->
+          <section class="form-section">
+            <div class="section-header">
+              <h2>Agregar Nuevo Producto</h2>
+              <p class="section-description">
+                Complete los datos del producto para agregarlo al menú
+              </p>
             </div>
 
-            <button type="submit" class="btn-submit">
-              <span>Agregar Producto</span>
-            </button>
-          </form>
-        </section>
+            <form
+              id="formAgregarProducto"
+              class="product-form"
+              onsubmit="event.preventDefault(); agregarProductoDesdeFormulario();"
+            >
+              <div class="form-grid">
+                <div class="form-field">
+                  <label class="field-label" for="nombreProducto"
+                    >Nombre del Producto</label
+                  >
+                  <input
+                    type="text"
+                    id="nombreProducto"
+                    class="field-input"
+                    placeholder="Ej: Filet Mignon"
+                    required
+                  />
+                </div>
 
-        <!-- Enhanced products list section -->
-        <section class="products-section">
-          <div class="section-header">
-            <h2>Lista de Productos</h2>
-            <p class="section-description">Gestione todos los productos del menú</p>
-          </div>
+                <!-- Cambiar input de categoría a select con opciones predefinidas -->
+                <div class="form-field">
+                  <label class="field-label" for="categoriaProducto"
+                    >Categoría</label
+                  >
+                  <select id="categoriaProducto" class="field-input" required>
+                    <option value="">Seleccione una categoría</option>
+                    <option value="Carnes">Carnes</option>
+                    <option value="Pastas">Pastas</option>
+                    <option value="Bebidas">Bebidas</option>
+                    <option value="Postres">Postres</option>
+                    <option value="Entradas">Entradas</option>
+                    <option value="Ensaladas">Ensaladas</option>
+                  </select>
+                </div>
 
-          <div class="search-container">
-            <input
-              type="text"
-              id="buscadorProductos"
-              class="search-input"
-              placeholder="Buscar por nombre, descripción o categoría..."
-            />
-          </div>
+                <div class="form-field full-width">
+                  <label class="field-label" for="descripcionProducto"
+                    >Descripción</label
+                  >
+                  <textarea
+                    id="descripcionProducto"
+                    class="field-input field-textarea"
+                    placeholder="Descripción detallada del producto"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
 
-          <div id="productosContainer" class="products-container"></div>
-        </section>
+                <div class="form-field">
+                  <label class="field-label" for="precioProducto"
+                    >Precio ($)</label
+                  >
+                  <input
+                    type="number"
+                    id="precioProducto"
+                    class="field-input"
+                    placeholder="0.00"
+                    step="0.01"
+                    required
+                  />
+                </div>
+
+                <!-- Agregar campo para subir imagen -->
+                <div class="form-field">
+                  <label class="field-label" for="imagenProducto"
+                    >Imagen del Producto</label
+                  >
+                  <input
+                    type="file"
+                    id="imagenProducto"
+                    class="field-input"
+                    accept="image/*"
+                  />
+                  <small style="color: #666; font-size: 0.85rem"
+                    >Formatos: JPG, PNG, GIF (máx. 5MB)</small
+                  >
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <span>Agregar Producto</span>
+              </button>
+            </form>
+          </section>
+
+          <!-- Enhanced products list section -->
+          <section class="products-section">
+            <div class="section-header">
+              <h2>Lista de Productos</h2>
+              <p class="section-description">
+                Gestione todos los productos del menú
+              </p>
+            </div>
+
+            <div class="search-container">
+              <input
+                type="text"
+                id="buscadorProductos"
+                class="search-input"
+                placeholder="Buscar por nombre, descripción o categoría..."
+              />
+            </div>
+
+            <div id="productosContainer" class="products-container"></div>
+          </section>
+        </div>
+
+        <!-- Tab de Pedidos -->
+        <div id="tabPedidos" class="tab-content">
+          <section class="products-section">
+            <div class="section-header">
+              <h2>Gestión de Pedidos</h2>
+              <p class="section-description">
+                Administre todos los pedidos del restaurante
+              </p>
+            </div>
+
+            <div class="search-container">
+              <input
+                type="text"
+                id="buscadorPedidos"
+                class="search-input"
+                placeholder="Buscar por número de pedido, cliente o estado..."
+              />
+            </div>
+
+            <div id="pedidosContainer" class="products-container"></div>
+          </section>
+        </div>
+
+        <!-- Tab de Clientes -->
+        <div id="tabClientes" class="tab-content">
+          <section class="products-section">
+            <div class="section-header">
+              <h2>Gestión de Usuarios</h2>
+              <p class="section-description">
+                Administre la información de los usuarios registrados
+              </p>
+            </div>
+
+            <div class="search-container">
+              <input
+                type="text"
+                id="buscadorClientes"
+                class="search-input"
+                placeholder="Buscar por nombre o email..."
+              />
+            </div>
+
+            <div id="usuariosContainer" class="products-container"></div>
+          </section>
+        </div>
       </div>
+   
+
+    <!-- Tab de Reservas -->
+    <div id="tabReservas" class="tab-content">
+      <section class="products-section">
+        <div class="section-header">
+          <h2>Gestión de Reservas</h2>
+          <p class="section-description">
+            Administre las reservas realizadas desde la página
+          </p>
+        </div>
+
+        <div class="search-container">
+          <input
+            type="text"
+            id="buscadorReservas"
+            class="search-input"
+            placeholder="Buscar por nombre, email o fecha..."
+          />
+        </div>
+ </div>
+        <div id="reservasContainer" class="products-container"></div>
+      </section>
     </div>
 
-    <script src="../js/gestion.js"></script>
     <script>
-      // Función para agregar producto desde el formulario
-      function agregarProductoDesdeFormulario() {
-        let nombre = document.getElementById("nombreProducto").value;
-        let descripcion = document.getElementById("descripcionProducto").value;
-        let precio = parseFloat(
-          document.getElementById("precioProducto").value
-        );
-        let categoria = document.getElementById("categoriaProducto").value;
+      document.addEventListener("DOMContentLoaded", async () => {
+        listarProductos();
+        await verificarAdmin();
+      });
 
-        agregarProducto(nombre, descripcion, precio, categoria);
-        
-        document.getElementById("formAgregarProducto").reset();
+      async function verificarAdmin() {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          alert("Necesitas tener la sesión de administrador iniciada");
+          window.location.href = "../page/login.html";
+          return;
+        }
+
+        try {
+          const response = await fetch("../../backend/api/api_usuarios.php", {
+            method: "GET",
+            headers: {
+              Authorization: "Bearer " + token,
+              Accept: "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error("Token inválido o expirado");
+          }
+
+          const data = await response.json();
+
+          // Validar contra data.admin.tipo
+          if (!data.admin || data.admin.tipo !== "admin") {
+            alert("No tienes permisos de administrador");
+            localStorage.removeItem("token");
+            localStorage.removeItem("usuario");
+            window.location.href = "../page/login.html";
+            return;
+          }
+
+          console.log("Admin autenticado:", data.admin.nombre_usuario || "");
+        } catch (error) {
+          console.error("Error de autenticación:", error);
+          alert("Error de autenticación. Inicia sesión nuevamente.");
+          localStorage.removeItem("token");
+          localStorage.removeItem("usuario");
+          window.location.href = "../page/login.html";
+        }
       }
+
+      // Función para cambiar de tab
+      function cambiarTab(tab) {
+        console.log("Cambiando a pestaña:", tab);
+
+        document.querySelectorAll(".tab-content").forEach((content) => {
+          content.classList.remove("active");
+        });
+        document.querySelectorAll(".tab-btn").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+
+        if (tab === "productos") {
+          document.getElementById("tabProductos").classList.add("active");
+          document
+            .querySelector(".tab-btn:nth-child(1)")
+            .classList.add("active");
+          listarProductos();
+        } else if (tab === "pedidos") {
+          document.getElementById("tabPedidos").classList.add("active");
+          document
+            .querySelector(".tab-btn:nth-child(2)")
+            .classList.add("active");
+          console.log("Cargando pedidos...");
+          listarPedidos();
+        } else if (tab === "clientes") {
+          document.getElementById("tabClientes").classList.add("active");
+          document
+            .querySelector(".tab-btn:nth-child(3)")
+            .classList.add("active");
+          console.log("Cargando clientes...");
+          listarUsuarios();
+        } else if (tab === "reservas") {
+          document.getElementById("tabReservas").classList.add("active");
+          document
+            .querySelector(".tab-btn:nth-child(4)")
+            .classList.add("active");
+          listarReservas();
+        }
+      }
+
+      // ============= EVENT LISTENERS =============
+      document
+        .getElementById("buscadorProductos")
+        .addEventListener("input", function () {
+          const texto = this.value.trim();
+          if (texto === "") {
+            listarProductos();
+          } else {
+            buscarProductos(texto);
+          }
+        });
+
+      document
+        .getElementById("buscadorPedidos")
+        .addEventListener("input", function () {
+          const texto = this.value.trim();
+          if (texto === "") {
+            listarPedidos();
+          } else {
+            buscarPedidos(texto);
+          }
+        });
+
+      document
+        .getElementById("buscadorClientes")
+        .addEventListener("input", function () {
+          const texto = this.value.trim();
+          if (texto === "") {
+            listarUsuarios();
+          } else {
+            buscarUsuarios(texto);
+          }
+        });
+
+      // ============= INICIALIZACIÓN =============
+      window.onload = function () {
+        console.log(
+          "Bienvenido al panel de gestión:",
+          localStorage.getItem("usuario")
+        );
+      };
     </script>
   </body>
+  <!-- Añadir scripts de gestión-->
+  <script src="../js/gestionUsuarios.js"></script>
+  <script src="../js/gestionProductos.js"></script>
+  <script src="../js/gestionPedidos.js"></script>
+  <script src="../js/gestionReservas.js"></script>
+
+  <!-- Added navbar.js to enable user dropdown on admin panel -->
+  <script src="../js/navbar.js"></script>
 </html>

@@ -1,0 +1,195 @@
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] POST recibido en api_pedidos.php
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Raw input: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Datos decodificados correctamente: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] === INICIO crearPedido ===
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] VERSION CONTROLADOR: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Datos recibidos: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Pedido de invitado (guest order) - id_usuario será NULL
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] id_usuario final: NULL
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] === INICIO Pedido::crear ===
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] VERSION MODELO: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] id_usuario recibido: NULL
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] ERROR - Rollback ejecutado: Error al preparar statement: Unknown column 'estado' in 'field list'
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] EXCEPCIÓN en crearPedido: Error al preparar statement: Unknown column 'estado' in 'field list'
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] Stack trace: #0 C:\xampp\htdocs\Proyecto_final_1\backend\controlador\pedidos.php(86): Pedido->crear(NULL, 30.5, '123123, undefin...', '123123123', 'tarjeta', Array)
+#1 C:\xampp\htdocs\Proyecto_final_1\backend\api\api_pedidos.php(52): crearPedido(Array)
+#2 {main}
+[14-Nov-2025 02:48:43 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] POST recibido en api_pedidos.php
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Raw input: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Datos decodificados correctamente: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] === INICIO crearPedido ===
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] VERSION CONTROLADOR: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Datos recibidos: {"id_usuario":null,"total":30.5,"direccion_entrega":"123123, undefined, undefined","telefono":"123123123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1},{"nombre":"Costillas BBQ","descripcion":"Costillas de cerdo glaseadas con salsa BBQ","precio":16,"categoria":"Carnes","imagen":"16.jpg","id":16,"cantidad":1}]}
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Pedido de invitado (guest order) - id_usuario será NULL
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] id_usuario final: NULL
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] === INICIO Pedido::crear ===
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] VERSION MODELO: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] id_usuario recibido: NULL
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Binding params: total=30.5, id_usuario=NULL, direccion=123123, undefined, undefined
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Ejecutando query...
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Pedido insertado con ID: 1
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Transacción completada exitosamente
+[14-Nov-2025 02:50:18 Europe/Berlin] [v0] Pedido creado exitosamente: {"id_pedido":1,"numero_pedido":"EP202511142469"}
+[14-Nov-2025 02:50:19 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:22 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:25 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:28 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:50:31 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] POST recibido en api_pedidos.php
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Raw input: {"id_usuario":null,"total":14.5,"direccion_entrega":"2314","telefono":"123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1}]}
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Datos decodificados correctamente: {"id_usuario":null,"total":14.5,"direccion_entrega":"2314","telefono":"123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1}]}
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] === INICIO crearPedido ===
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] VERSION CONTROLADOR: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Datos recibidos: {"id_usuario":null,"total":14.5,"direccion_entrega":"2314","telefono":"123","metodo_pago":"tarjeta","productos":[{"nombre":"Bife de Chorizo 300g","descripcion":"Bife de chorizo a la parrilla, 300g","precio":14.5,"categoria":"Carnes","imagen":"15.webp","id":15,"cantidad":1}]}
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Pedido de invitado (guest order) - id_usuario será NULL
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] id_usuario final: NULL
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] ========================================
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] === INICIO Pedido::crear ===
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] VERSION MODELO: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] id_usuario recibido: NULL
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Binding params: total=14.5, id_usuario=NULL, direccion=2314
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Ejecutando query...
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Pedido insertado con ID: 2
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Transacción completada exitosamente
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Pedido creado exitosamente: {"id_pedido":2,"numero_pedido":"EP202511148733"}
+[14-Nov-2025 02:58:14 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:17 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:21 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:24 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:27 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:30 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:34 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:37 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:41 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:44 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:47 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:50 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:53 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:56 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:58:59 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:02 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:05 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:08 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:11 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:14 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:17 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:20 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:23 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:27 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:30 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:33 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:34 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:35 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:38 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:38 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:39 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:42 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:46 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:49 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:52 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:55 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 02:59:58 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:01 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:04 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:07 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:10 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:13 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:16 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:20 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:23 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:26 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:26 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:27 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:28 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:31 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:34 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:37 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:40 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:43 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:46 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:49 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:52 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:55 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:00:58 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:01 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:04 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:07 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:10 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:13 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:16 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:19 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:22 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:25 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:28 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:31 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:34 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:37 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:40 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:43 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:46 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:49 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:52 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:55 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:01:58 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:01 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:04 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:07 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:10 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:13 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:16 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:19 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:22 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:25 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:29 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:32 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:35 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:38 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:41 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:44 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:47 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:02:57 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:05:43 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:10:38 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[14-Nov-2025 03:10:40 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 21:23:47 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 21:23:49 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:17:59 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:17:59 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:18:00 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:18:01 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] POST recibido en api_pedidos.php
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Raw input: {"id_usuario":null,"total":22,"direccion_entrega":"123123","telefono":"12312313123","notas":"123123","metodo_pago":"efectivo","productos":[{"nombre":"Ravioles de Ricota","descripcion":"Ravioles caseros rellenos de ricota y salsa a elección","precio":11,"categoria":"Pastas","imagen":"18.webp","id":18,"cantidad":2}]}
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Datos decodificados correctamente: {"id_usuario":null,"total":22,"direccion_entrega":"123123","telefono":"12312313123","notas":"123123","metodo_pago":"efectivo","productos":[{"nombre":"Ravioles de Ricota","descripcion":"Ravioles caseros rellenos de ricota y salsa a elecci\u00f3n","precio":11,"categoria":"Pastas","imagen":"18.webp","id":18,"cantidad":2}]}
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] ========================================
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] === INICIO crearPedido ===
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] VERSION CONTROLADOR: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Datos recibidos: {"id_usuario":null,"total":22,"direccion_entrega":"123123","telefono":"12312313123","notas":"123123","metodo_pago":"efectivo","productos":[{"nombre":"Ravioles de Ricota","descripcion":"Ravioles caseros rellenos de ricota y salsa a elecci\u00f3n","precio":11,"categoria":"Pastas","imagen":"18.webp","id":18,"cantidad":2}]}
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Pedido de invitado (guest order) - id_usuario será NULL
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] id_usuario final: NULL
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] ========================================
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] === INICIO Pedido::crear ===
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] VERSION MODELO: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] id_usuario recibido: NULL
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Binding params: total=22, id_usuario=NULL, direccion=123123
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Ejecutando query...
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Pedido insertado con ID: 7
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Transacción completada exitosamente
+[15-Nov-2025 22:29:40 Europe/Berlin] [v0] Pedido creado exitosamente: {"id_pedido":7,"numero_pedido":"EP202511153694"}
+[15-Nov-2025 22:31:35 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:05 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:06 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:07 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:15 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:16 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX
+[15-Nov-2025 22:35:16 Europe/Berlin] [v0] Controlador pedidos.php cargado - VERSION: v4.0-2025-10-23-GUEST-FIX

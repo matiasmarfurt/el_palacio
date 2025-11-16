@@ -35,25 +35,43 @@ class Producto
         return $result->fetch_assoc();
     }
 
-    // Método para agregar un nuevo producto
-    public function agregar($nombre, $descripcion, $precio, $categoria)
+    // Método para agregar un producto
+    public function agregar($nombre, $descripcion, $precio, $categoria, $imagen = null)
     {
-        $stmt = $this->conn->prepare("INSERT INTO productos (nombre, descripcion, precio, categoria) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("ssds", $nombre, $descripcion, $precio, $categoria);
-        return $stmt->execute();
+        $stmt = $this->conn->prepare("INSERT INTO productos (nombre, descripcion, precio, categoria, imagen) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssdss", $nombre, $descripcion, $precio, $categoria, $imagen);
+        if ($stmt->execute()) return $this->conn->insert_id;
+        return false;
     }
 
     // Método para modificar un producto existente
-    public function modificar($id, $nombre, $descripcion, $precio, $categoria)
+    public function modificar($id, $nombre, $descripcion, $precio, $categoria, $imagen = null)
     {
-        $stmt = $this->conn->prepare("UPDATE productos SET nombre=?, descripcion=?, precio=?, categoria=? WHERE id=?");
-        $stmt->bind_param("ssdsi"/* Cada letra indica el tipo de dato de cada parámetro envíado con la función bind_param() (s= String. d= Double. i= Integer) */, $nombre, $descripcion, $precio, $categoria, $id);
+        if ($imagen) {
+            $stmt = $this->conn->prepare("UPDATE productos SET nombre=?, descripcion=?, precio=?, categoria=?, imagen=? WHERE id=?");
+            $stmt->bind_param("ssdssi", $nombre, $descripcion, $precio, $categoria, $imagen, $id);
+        } else {
+            $stmt = $this->conn->prepare("UPDATE productos SET nombre=?, descripcion=?, precio=?, categoria=? WHERE id=?");
+            $stmt->bind_param("ssdsi", $nombre, $descripcion, $precio, $categoria, $id);
+        }
         return $stmt->execute();
     }
 
     // Método para eliminar un producto
     public function eliminar($id)
     {
+        $stmt = $this->conn->prepare("SELECT imagen FROM productos WHERE id=?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        $producto = $res->fetch_assoc();
+
+        // Eliminar la imagen del servidor si existe
+        if ($producto && !empty($producto['imagen'])) {
+            $ruta = __DIR__ . "/../img/" . $producto['imagen'];
+            if (file_exists($ruta)) unlink($ruta);
+        }
+
         $stmt = $this->conn->prepare("DELETE FROM productos WHERE id=?");
         $stmt->bind_param("i", $id);
         return $stmt->execute();

@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.pago-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.pago-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.pago-header h1 {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #333;
+}
+
+.btn-volver {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+
+.btn-volver:hover {
+  background: #5c0a0a;
+}
+
+.pago-content {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 30px;
+}
+
+.pago-form-section {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+.pago-form-section h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.pago-form-section h2:first-child {
+  margin-top: 0;
+}
+
+.pago-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 12px 15px;
+  color: #333;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #5c0a0a;
+}
+
+.form-group input::placeholder {
+  color: #999;
+}
+
+.btn-pagar {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+.btn-pagar:hover {
+  background: #5c0a0a;
+}
+
+.pago-resumen {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.pago-resumen h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.resumen-productos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.resumen-item {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.resumen-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.resumen-item-imagen {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #f0f0f0;
+}
+
+.resumen-item-info {
+  flex: 1;
+}
+
+.resumen-item-nombre {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.resumen-item-cantidad {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.resumen-item-precio {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333;
+  text-align: right;
+}
+
+.resumen-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  border-top: 2px solid #e0e0e0;
+  margin-top: 20px;
+}
+
+.resumen-total span:first-child {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.total-precio {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #5c0a0a;
+}
+
+@media (max-width: 968px) {
+  .pago-content {
+    grid-template-columns: 1fr;
+  }
+
+  .pago-resumen {
+    position: static;
+  }
+}
+
+@media (max-width: 576px) {
+  .pago-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .pago-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .pago-form-section,
+  .pago-resumen {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Indicador del tipo de tarjeta */
+#tipoTarjetaLabel {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: #666;
+  padding-left: 4px;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+#tipoTarjetaLabel.visa {
+  color: #1a73e8; /* Azul Visa */
+  transform: translateX(2px);
+}
+
+#tipoTarjetaLabel.master {
+  color: #e53935; /* Rojo MasterCard */
+  transform: translateX(2px);
+}

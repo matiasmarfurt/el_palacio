@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seguimiento de Pedido - El Palacio</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/seguimiento.css" />
+  </head>
+  <body>
+    <div class="seguimiento-container">
+      <div class="seguimiento-header">
+        <h1>Seguimiento de Pedido</h1>
+        <p>Tu pedido ha sido confirmado exitosamente</p>
+      </div>
+
+      <div class="seguimiento-content">
+        <div class="pedido-info">
+          <div class="info-card">
+            <h2>Información del Pedido</h2>
+            <div class="info-item">
+              <span class="info-label">Número de Pedido:</span>
+              <span class="info-value" id="numeroPedido"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Fecha:</span>
+              <span class="info-value" id="fechaPedido"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Total:</span>
+              <span class="info-value" id="totalPedido"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Dirección de Entrega:</span>
+              <span class="info-value" id="direccionEntrega"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Teléfono:</span>
+              <span class="info-value" id="telefonoPedido"></span>
+            </div>
+          </div>
+
+          <div class="estado-card">
+            <h2>Estado del Pedido</h2>
+            <div class="estado-timeline">
+              <div class="estado-item activo" id="estadoRecibido">
+                <div class="estado-icono">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
+                  </svg>
+                </div>
+                <div class="estado-info">
+                  <div class="estado-titulo">Pedido Recibido</div>
+                  <div class="estado-descripcion">Tu pedido ha sido confirmado</div>
+                </div>
+              </div>
+
+              <div class="estado-item" id="estadoPreparacion">
+                <div class="estado-icono">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                </div>
+                <div class="estado-info">
+                  <div class="estado-titulo">En Preparación</div>
+                  <div class="estado-descripcion">Estamos preparando tu pedido</div>
+                </div>
+              </div>
+
+              <div class="estado-item" id="estadoEnCamino">
+                <div class="estado-icono">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M18 18.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm1.5-9H17V12h4.46L19.5 9.5zM6 18.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zM20 8l3 4v5h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H9c0 1.66-1.34 3-3 3s-3-1.34-3-3H1V6c0-1.1.9-2 2-2h14v4h3zM3 6v9h.76c.55-.61 1.35-1 2.24-1s1.69.39 2.24 1H15V6H3z"
+                    />
+                  </svg>
+                </div>
+                <div class="estado-info">
+                  <div class="estado-titulo">En Camino</div>
+                  <div class="estado-descripcion">Tu pedido está en camino</div>
+                </div>
+              </div>
+
+              <div class="estado-item" id="estadoEntregado">
+                <div class="estado-icono">
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3z" />
+                  </svg>
+                </div>
+                <div class="estado-info">
+                  <div class="estado-titulo">Entregado</div>
+                  <div class="estado-descripcion">Tu pedido ha sido entregado</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="productos-card">
+            <h2>Productos del Pedido</h2>
+            <div id="productosLista"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seguimiento-footer">
+        <button class="btn-volver" onclick="volverAlInicio()">Volver al Inicio</button>
+      </div>
+    </div>
+
+    <script src="../js/seguimiento.js"></script>
+  </body>
+</html>

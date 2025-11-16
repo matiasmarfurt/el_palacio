@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pago con Tarjeta - El Palacio</title>
+    <link rel="stylesheet" href="../css/pago.css" />
+  </head>
+  <body>
+    <div class="pago-container">
+      <div class="pago-header">
+        <h1>Finalizar Compra</h1>
+        <button class="btn-volver" onclick="volverAlCarrito()">← Volver</button>
+      </div>
+
+      <div class="pago-content">
+        <div class="pago-form-section">
+          <h2>Información de Pago</h2>
+          <form id="formPago" class="pago-form">
+            <div class="form-group">
+              <label for="numeroTarjeta">Número de Tarjeta</label>
+              <input
+                type="text"
+                id="numeroTarjeta"
+                placeholder="1234 5678 9012 3456"
+                maxlength="19"
+                required
+              />
+              <small
+                id="tipoTarjetaLabel"
+                style="color: #555; margin-top: 4px; display: block"
+              >
+              </small>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fechaExpiracion">Fecha de Expiración</label>
+                <input
+                  type="text"
+                  id="fechaExpiracion"
+                  placeholder="MM/AA"
+                  maxlength="5"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input
+                  type="text"
+                  id="cvv"
+                  placeholder="123"
+                  maxlength="3"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nombreTitular">Nombre del Titular</label>
+              <input
+                type="text"
+                id="nombreTitular"
+                placeholder="Nombre completo"
+                required
+              />
+            </div>
+
+            <h2>Información de Contacto</h2>
+
+            <div class="form-group">
+              <label for="telefono">Número de Teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                placeholder="+56 9 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección de Entrega</label>
+              <input
+                type="text"
+                id="direccion"
+                placeholder="Calle, número, departamento"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="notasAdicionales">Notas Adicionales</label>
+              <input
+                type="text"
+                id="notasAdicionales"
+                placeholder="Color de casa, numero de casa, etc"
+                required
+              />
+            </div>
+
+            <div class="form-row"></div>
+
+            <button type="submit" class="btn-pagar">Confirmar Pago</button>
+          </form>
+        </div>
+
+        <div class="pago-resumen">
+          <h2>Resumen del Pedido</h2>
+          <div id="resumenProductos" class="resumen-productos"></div>
+          <div class="resumen-total">
+            <span>Total a Pagar:</span>
+            <span id="totalPago" class="total-precio">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/pago.js"></script>
+  </body>
+</html>

@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/conexion.php';
-require_once __DIR__ . '/../modelo/Pedido.php';
+require_once __DIR__ . '/../modelo/pedido.php';
 
 $pedidoModel = new Pedido($conn);
 

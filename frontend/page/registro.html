@@ -1,150 +1,165 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Registro - El Palacio</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/registro.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/registro.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <header>
-        <div class="header-container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="../page/index.html">El Palacio</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav ms-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#inicio">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#carta">Carta</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#reservas">Reservas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#ubicacion">¿Donde nos encontramos?</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#contacto">Contacto</a>
-                            </li>
-                            <li class="nav-item">
-                                <!-- Agregar emoji 👤 al nav -->
-                                <a class="nav-link" href="login.html">👤</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
+      <div class="header-container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="../page/index.html">El Palacio</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#inicio">Inicio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#carta">Carta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#reservas">Reservas</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#ubicacion">Ubicación</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Agregar emoji 👤 al nav -->
+                  <a class="nav-link" href="login.html">👤</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Contenedor de registro rediseñado con estilo profesional y decorativo -->
     <main class="registro-page">
-        <div class="registro-container">
-            <!-- Decoración superior -->
-            <div class="decoration-top"></div>
-            
-            <div class="registro-card">
-                <!-- Removido emoji decorativo -->
-                <h2 class="registro-title">Crear Cuenta</h2>
-                <p class="registro-subtitle">Únete a El Palacio</p>
-                
-                <form id="registerForm" class="registro-form">
-                    <div class="form-group">
-                        <label for="nombre">Nombre</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji -->
-                            <input 
-                                type="text" 
-                                id="nombre" 
-                                placeholder="Tu nombre" 
-                                required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="apellido">Apellido</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji -->
-                            <input 
-                                type="text" 
-                                id="apellido" 
-                                placeholder="Tu apellido" 
-                                required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji -->
-                            <input 
-                                type="email" 
-                                id="email" 
-                                placeholder="tu@email.com" 
-                                required>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji -->
-                            <input 
-                                type="password" 
-                                id="password" 
-                                placeholder="Tu contraseña" 
-                                required>
-                        </div>
-                    </div>
-                    
-                    <button type="submit" class="btn-primary">Registrarse</button>
-                    <p id="registerErrorMsg" class="error-message"></p>
-                    <div id="mensaje" class="mensaje-oculto"></div>
-                </form>
-                
-                <div class="registro-footer">
-                    <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a></p>
-                </div>
+      <div class="registro-container">
+        <!-- Decoración superior -->
+        <div class="decoration-top"></div>
+
+        <div class="registro-card">
+          <!-- Removido emoji decorativo -->
+          <h2 class="registro-title">Crear Cuenta</h2>
+          <p class="registro-subtitle">Únete a El Palacio</p>
+
+          <form id="registerForm" class="registro-form">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji -->
+                <input
+                  type="text"
+                  id="nombre"
+                  placeholder="Tu nombre"
+                  required
+                />
+              </div>
             </div>
-            
-            <!-- Decoración inferior -->
-            <div class="decoration-bottom"></div>
-        </div>
-        
-        <!-- Added overlay with blur effect and loading animation -->
-        <div id="loadingOverlay" class="loading-overlay">
-            <div class="loading-container">
-                <div id="loadingSpinner" class="loading-spinner"></div>
-                <div id="successCheck" class="success-check hidden">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-                <p id="loadingText" class="loading-text">Registrando usuario...</p>
+
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji -->
+                <input
+                  type="text"
+                  id="apellido"
+                  placeholder="Tu apellido"
+                  required
+                />
+              </div>
             </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji -->
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="tu@email.com"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji -->
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Tu contraseña"
+                  required
+                />
+              </div>
+            </div>
+
+            <button type="submit" class="btn-primary">Registrarse</button>
+            <p id="registerErrorMsg" class="error-message"></p>
+            <div id="mensaje" class="mensaje-oculto"></div>
+          </form>
+
+          <div class="registro-footer">
+            <p>
+              ¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a>
+            </p>
+          </div>
         </div>
+
+        <!-- Decoración inferior -->
+        <div class="decoration-bottom"></div>
+      </div>
+
+      <!-- Added overlay with blur effect and loading animation -->
+      <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-container">
+          <div id="loadingSpinner" class="loading-spinner"></div>
+          <div id="successCheck" class="success-check hidden">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <p id="loadingText" class="loading-text">Registrando usuario...</p>
+        </div>
+      </div>
     </main>
 
     <footer id="contacto" class="footer">
-        <div class="container text-center">
-            <p>© 2025 El Palacio. Todos los derechos reservados.</p>
-        </div>
+      <div class="container text-center">
+        <p>© 2025 El Palacio. Todos los derechos reservados.</p>
+      </div>
     </footer>
 
     <script src="../js/registro.js"></script>
     <script src="../js/navbar.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
-</body>
-
+  </body>
 </html>

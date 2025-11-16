@@ -1,193 +1,158 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio de Sesión - El Palacio</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/sesion.css?v=20251017">
-    <!-- Agregar estilos del widget flotante de ayuda -->
-    <link rel="stylesheet" href="../css/ayuda-flotante.css">
-</head>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/sesion.css?v=20251017" />
+  </head>
 
-<body>
+  <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../page/index.html">El Palacio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#carta">Carta</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#reservas">Reservas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html#contacto">Contacto</a>
-                        </li>
-                        <!-- Elemento dinámico que mostrará el nombre del usuario o el icono de login -->
-                        <li class="nav-item">
-                            <a class="nav-link active" href="login.html" id="userLink">👤</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../page/index.html">El Palacio</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#carta">Carta</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#reservas">Reservas</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#ubicacion">Ubicación</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="index.html#contacto">Contacto</a>
+              </li>
+              <!-- Elemento dinámico que mostrará el nombre del usuario o el icono de login -->
+              <li class="nav-item">
+                <a class="nav-link active" href="login.html" id="userLink"
+                  >👤</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Contenedor de login rediseñado con estilo profesional y decorativo -->
     <main class="login-page">
-        <div class="login-container">
-            <!-- Decoración superior -->
-            <div class="decoration-top"></div>
-            
-            <div class="login-card">
-                <!-- Removido emoji decorativo -->
-                <h1>Iniciar Sesión</h1>
-                <p class="subtitle">Bienvenido a El Palacio</p>
-                
-                <form id="loginForm" class="login-form">
-                    <div class="form-group">
-                        <label for="username">Usuario</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji, usando línea decorativa -->
-                            <input 
-                                type="text" 
-                                id="username" 
-                                placeholder="Tu usuario" 
-                                required
-                                autocomplete="username">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <div class="input-wrapper">
-                            <!-- Removido emoji -->
-                            <input 
-                                type="password" 
-                                id="password" 
-                                placeholder="Tu contraseña" 
-                                required
-                                autocomplete="current-password">
-                        </div>
-                    </div>
-                    
-                    <p id="errorMsg" class="error-message"></p>
-                    
-                    <button type="submit" class="btn-primary">Iniciar Sesión</button>
-                </form>
-                
-                <div class="login-footer">
-                    <p>¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a></p>
-                </div>
+      <div class="login-container">
+        <!-- Decoración superior -->
+        <div class="decoration-top"></div>
+
+        <div class="login-card">
+          <!-- Removido emoji decorativo -->
+          <h1>Iniciar Sesión</h1>
+          <p class="subtitle">Bienvenido a El Palacio</p>
+
+          <form id="loginForm" class="login-form">
+            <div class="form-group">
+              <label for="username">Usuario</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji, usando línea decorativa -->
+                <input
+                  type="text"
+                  id="username"
+                  placeholder="Tu usuario"
+                  required
+                  autocomplete="username"
+                />
+              </div>
             </div>
-            
-            <!-- Decoración inferior -->
-            <div class="decoration-bottom"></div>
-        </div>
-        
-        <!-- Agregando overlay de animación de carga y éxito -->
-        <!-- Added overlay with blur effect and loading animation -->
-        <div id="loadingOverlay" class="loading-overlay">
-            <div class="loading-container">
-                <div id="loadingSpinner" class="loading-spinner"></div>
-                <div id="successCheck" class="success-check hidden">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                </div>
-                <p id="loadingText" class="loading-text">Iniciando sesión...</p>
+
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <div class="input-wrapper">
+                <!-- Removido emoji -->
+                <input
+                  type="password"
+                  id="password"
+                  placeholder="Tu contraseña"
+                  required
+                  autocomplete="current-password"
+                />
+              </div>
             </div>
+
+            <p id="errorMsg" class="error-message"></p>
+
+            <button type="submit" class="btn-primary">Iniciar Sesión</button>
+          </form>
+
+          <div class="login-footer">
+            <p>
+              ¿No tienes una cuenta? <a href="registro.html">Regístrate aquí</a>
+            </p>
+          </div>
         </div>
+
+        <!-- Decoración inferior -->
+        <div class="decoration-bottom"></div>
+      </div>
+
+      <!-- Agregando overlay de animación de carga y éxito -->
+      <!-- Added overlay with blur effect and loading animation -->
+      <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-container">
+          <div id="loadingSpinner" class="loading-spinner"></div>
+          <div id="successCheck" class="success-check hidden">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <p id="loadingText" class="loading-text">Iniciando sesión...</p>
+        </div>
+      </div>
     </main>
 
     <footer id="contacto" class="footer">
-        <div class="container text-center">
-            <p>© 2025 El Palacio. Todos los derechos reservados.</p>
-        </div>
+      <div class="container text-center">
+        <p>© 2025 El Palacio. Todos los derechos reservados.</p>
+      </div>
     </footer>
-
-    <!-- Agregar widget flotante de ayuda -->
-    <!-- Botón flotante -->
-    <button id="boton-ayuda-flotante" title="¿Necesita ayuda?">💬</button>
-
-    <!-- Widget de ayuda expandido -->
-    <div id="widget-ayuda-flotante">
-      <div class="widget-header">
-        <h3>¿Necesita ayuda?</h3>
-        <p>Contáctenos si tiene alguna pregunta</p>
-        <button id="cerrar-widget-ayuda">✕</button>
-      </div>
-      <div class="widget-content">
-        <!-- WhatsApp -->
-        <a href="https://wa.me/598XXXXXXXXX?text=Hola%20El%20Palacio%2C%20tengo%20una%20consulta" target="_blank" class="opcion-contacto">
-          <div class="opcion-icono">📱</div>
-          <div class="opcion-info">
-            <h4>WhatsApp</h4>
-            <p>El Palacio - Consultas</p>
-          </div>
-        </a>
-
-        <!-- Instagram -->
-        <a href="https://instagram.com/elpalacio" target="_blank" class="opcion-contacto">
-          <div class="opcion-icono">📷</div>
-          <div class="opcion-info">
-            <h4>Instagram</h4>
-            <p>@elpalacio</p>
-          </div>
-        </a>
-
-        <!-- Teléfono -->
-        <a href="tel:45229753" class="opcion-contacto">
-          <div class="opcion-icono">☎️</div>
-          <div class="opcion-info">
-            <h4>Teléfono</h4>
-            <p>4522 9753</p>
-          </div>
-        </a>
-
-        <!-- Email -->
-        <a href="mailto:reservas@elpalacio.com" class="opcion-contacto">
-          <div class="opcion-icono">✉️</div>
-          <div class="opcion-info">
-            <h4>Email</h4>
-            <p>reservas@elpalacio.com</p>
-          </div>
-        </a>
-      </div>
-    </div>
 
     <script src="../js/usuario.js"></script>
     <script src="../js/navbar.js"></script>
-    <!-- Agregar script del widget flotante -->
-    <script src="../js/ayuda-flotante.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script>
-        // Script to dynamically update the navbar link based on user login status
-        document.addEventListener('DOMContentLoaded', function() {
-            const userLink = document.getElementById('userLink');
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+      // Script to dynamically update the navbar link based on user login status
+      document.addEventListener("DOMContentLoaded", function () {
+        const userLink = document.getElementById("userLink");
+        const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-            if (isLoggedIn) {
-                const username = localStorage.getItem('username');
-                userLink.textContent = username;
-                userLink.href = "perfil.html";
-            } else {
-                userLink.textContent = '👤';
-                userLink.href = "login.html";
-            }
-        });
+        if (isLoggedIn) {
+          const username = localStorage.getItem("username");
+          userLink.textContent = username;
+          userLink.href = "perfil.html";
+        } else {
+          userLink.textContent = "👤";
+          userLink.href = "login.html";
+        }
+      });
     </script>
-</body>
-
+  </body>
 </html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pago en Efectivo - El Palacio</title>
+    <link rel="stylesheet" href="../css/pago.css" />
+  </head>
+  <body>
+    <div class="pago-container">
+      <div class="pago-header">
+        <h1>Finalizar Compra</h1>
+        <button class="btn-volver" onclick="volverAlCarrito()">← Volver</button>
+      </div>
+
+      <div class="pago-content">
+        <!-- FORMULARIO -->
+        <div class="pago-form-section">
+          <h2>Pago en Efectivo</h2>
+
+          <form id="formEfectivo" class="pago-form">
+            <h2>Información de Contacto</h2>
+
+            <div class="form-group">
+              <label for="telefono">Número de Teléfono</label>
+              <input
+                type="tel"
+                id="telefono"
+                placeholder="+56 9 1234 5678"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="direccion">Dirección de Entrega</label>
+              <input
+                type="text"
+                id="direccion"
+                placeholder="Calle, número, departamento"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="notasAdicionales">Notas Adicionales</label>
+              <input
+                type="text"
+                id="notasAdicionales"
+                placeholder="Color de casa, referencias, etc"
+              />
+            </div>
+
+            <button type="submit" class="btn-pagar">Confirmar Pedido</button>
+          </form>
+        </div>
+
+        <!-- RESUMEN DEL PEDIDO -->
+        <div class="pago-resumen">
+          <h2>Resumen del Pedido</h2>
+          <div id="resumenProductos" class="resumen-productos"></div>
+
+          <div class="resumen-total">
+            <span>Total a Pagar:</span>
+            <span id="totalPago" class="total-precio">$0.00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/carta.js"></script>
+    <script src="../js/pagoEfectivo.js"></script>
+  </body>
+</html>

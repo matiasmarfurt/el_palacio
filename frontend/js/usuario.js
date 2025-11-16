@@ -1,85 +1,82 @@
 // URL base del endpoint para usuarios (API REST PHP)
-const API_URL = "../../backend/api/api_usuarios.php"
+const API_URL_USUARIOS = "../../backend/api/api_usuarios.php";
 
 // Esperar a que el DOM esté listo para agregar el listener al formulario de login
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("loginForm").addEventListener("submit", enviarLogin)
-})
+  document.getElementById("loginForm").addEventListener("submit", enviarLogin);
+});
 
 function mostrarOverlayDeCarga() {
-  const overlay = document.getElementById("loadingOverlay")
-  overlay.classList.add("active")
+  const overlay = document.getElementById("loadingOverlay");
+  overlay.classList.add("active");
 }
 
 function ocultarOverlayDeCarga() {
-  const overlay = document.getElementById("loadingOverlay")
-  overlay.classList.remove("active")
+  const overlay = document.getElementById("loadingOverlay");
+  overlay.classList.remove("active");
 }
 
 function mostrarAnimacionExito() {
-  const spinner = document.getElementById("loadingSpinner")
-  const check = document.getElementById("successCheck")
-  const text = document.getElementById("loadingText")
+  const spinner = document.getElementById("loadingSpinner");
+  const check = document.getElementById("successCheck");
+  const text = document.getElementById("loadingText");
 
-  spinner.classList.add("hidden")
-  check.classList.remove("hidden")
-  text.innerText = "¡Sesión iniciada correctamente!"
+  spinner.classList.add("hidden");
+  check.classList.remove("hidden");
+  text.innerText = "¡Sesión iniciada correctamente!";
 }
 
 // Función para manejar el submit del formulario de login
 function enviarLogin(event) {
-  event.preventDefault()
+  event.preventDefault();
 
-  const usuario = document.getElementById("username").value.trim()
-  const contrasena = document.getElementById("password").value.trim()
-  const errorMsg = document.getElementById("errorMsg")
+  const usuarioOEmail = document.getElementById("username").value.trim();
+  const contrasena = document.getElementById("password").value.trim();
+  const errorMsg = document.getElementById("errorMsg");
 
-  // Validar campos vacíos
-  if (!usuario || !contrasena) {
-    errorMsg.textContent = "Completa todos los campos."
-    return
+  if (!usuarioOEmail || !contrasena) {
+    errorMsg.textContent = "Completa todos los campos.";
+    return;
   }
 
-  mostrarOverlayDeCarga()
+  mostrarOverlayDeCarga();
 
-  // Enviar datos al backend para login (POST)
-  fetch(API_URL, {
+  fetch(API_URL_USUARIOS, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      nombre_usuario: usuario,
+      nombre_usuario: usuarioOEmail, // tu backend puede aceptar usuario o email
       password: contrasena,
     }),
   })
-    .then((res) => {
-      if (!res.ok) throw new Error("Error de conexión")
-      return res.json()
-    })
-    .then((data) => {
-      // Si el login es exitoso, guardar usuario en localStorage y redirigir
-      if (data.success && data.usuario) {
-        mostrarAnimacionExito()
-        // Guarda la sesión del usuario en localStorage
-        localStorage.setItem("usuario", JSON.stringify(data.usuario))
+    .then((res) =>
+      res.json().then((data) => ({ status: res.status, body: data }))
+    )
+    .then(({ status, body }) => {
+      ocultarOverlayDeCarga();
 
-        // Redirige después de mostrar la animación (espera 3 segundos)
+      if (body.success && body.usuario && body.token) {
+        // Guardar usuario y token
+        localStorage.setItem("usuario", JSON.stringify(body.usuario));
+        localStorage.setItem("token", body.token);
+
+        mostrarAnimacionExito();
+
         setTimeout(() => {
-          if (data.usuario.tipo === "admin") {
-            window.location.href = "../page/gestion.html"
+          if (body.usuario.tipo === "admin") {
+            window.location.href = "../page/gestion.html";
           } else {
-            window.location.href = "../page/index.html"
+            window.location.href = "../page/index.html";
           }
-        }, 3000)
+        }, 1000);
       } else {
-        // Mostrar mensaje de error si las credenciales son incorrectas
-        ocultarOverlayDeCarga()
-        errorMsg.textContent = data.error || "Usuario o contraseña incorrectos."
+        errorMsg.textContent =
+          body.error || "Usuario/email o contraseña incorrectos.";
       }
     })
     .catch((err) => {
-      // Mostrar mensaje de error si hay problemas de conexión o servidor
-      ocultarOverlayDeCarga()
-      errorMsg.textContent = "Error de conexión o servidor."
-      console.error(err)
-    })
+      ocultarOverlayDeCarga();
+      console.error(err);
+      errorMsg.textContent = "No se pudo conectar al servidor.";
+    });
 }

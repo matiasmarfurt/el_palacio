@@ -8,16 +8,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // Cerrar el menú al hacer clic en un enlace
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      if (navbarToggler.offsetParent !== null) {
+      if (navbarToggler && navbarToggler.offsetParent !== null) {
         navbarToggler.click()
       }
     })
   })
 
   // Mostrar animación o cambio de ícono
-  navbarToggler.addEventListener("click", () => {
-    navbarToggler.classList.toggle("active")
-  })
+  if (navbarToggler) {
+    navbarToggler.addEventListener("click", () => {
+      navbarToggler.classList.toggle("active")
+    })
+  }
 
   mostrarNombreUsuarioEnNavbar()
 })
@@ -30,8 +32,13 @@ function mostrarNombreUsuarioEnNavbar() {
       const usuario = JSON.parse(usuarioJSON)
       const nombreCompleto = `${usuario.nombre_usuario} ${usuario.apellido_usuario}`
 
-      // Buscar el elemento del icono de usuario en el navbar
-      const userLink = document.querySelector(".navbar-nav .nav-item:last-child .nav-link")
+      // Buscar en navbar estándar (última posición)
+      let userLink = document.querySelector(".navbar-nav .nav-item:last-child .nav-link")
+
+      // Si no se encuentra, buscar en el admin header
+      if (!userLink) {
+        userLink = document.getElementById("userLinkAdmin")
+      }
 
       if (userLink) {
         // Reemplazar el icono con el nombre del usuario
@@ -42,7 +49,7 @@ function mostrarNombreUsuarioEnNavbar() {
         // Agregar evento para cerrar sesión al hacer clic
         userLink.addEventListener("click", (e) => {
           e.preventDefault()
-          mostrarMenuUsuario(usuario)
+          mostrarMenuUsuario(usuario, userLink)
         })
       }
     } catch (error) {
@@ -51,7 +58,7 @@ function mostrarNombreUsuarioEnNavbar() {
   }
 }
 
-function mostrarMenuUsuario(usuario) {
+function mostrarMenuUsuario(usuario, userLink) {
   const menuExistente = document.getElementById("userMenu")
 
   if (menuExistente) {
@@ -59,17 +66,27 @@ function mostrarMenuUsuario(usuario) {
     return
   }
 
+  const navbar = document.querySelector(".navbar")
+  const navbarHeight = navbar ? navbar.offsetHeight : 56
+
+  console.log("[v0] Navbar height:", navbarHeight)
+  console.log("[v0] Creating dropdown menu")
+
   const menu = document.createElement("div")
   menu.id = "userMenu"
+
+  const rect = userLink.getBoundingClientRect()
+  console.log("[v0] UserLink position:", rect)
+
   menu.style.cssText = `
-    position: absolute;
-    top: 60px;
-    right: 20px;
+    position: fixed;
+    top: ${navbarHeight}px;
+    right: 10px;
     background: white;
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
+    z-index: 10000;
     min-width: 200px;
   `
 
@@ -82,6 +99,7 @@ function mostrarMenuUsuario(usuario) {
   `
 
   document.body.appendChild(menu)
+  console.log("[v0] Dropdown menu appended to body")
 
   document.getElementById("cerrarSesionBtn").addEventListener("click", () => {
     localStorage.removeItem("usuario")
@@ -89,9 +107,13 @@ function mostrarMenuUsuario(usuario) {
   })
 
   // Cerrar menú al hacer clic fuera
-  document.addEventListener("click", (e) => {
-    if (!menu.contains(e.target) && !e.target.classList.contains("nav-link")) {
-      menu.remove()
-    }
-  })
+  setTimeout(() => {
+    document.addEventListener("click", function closeMenu(e) {
+      if (!menu.contains(e.target) && e.target !== userLink) {
+        console.log("[v0] Closing dropdown menu")
+        menu.remove()
+        document.removeEventListener("click", closeMenu)
+      }
+    })
+  }, 0)
 }
